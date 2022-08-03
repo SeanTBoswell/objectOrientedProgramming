@@ -1,0 +1,748 @@
+#include <iostream>
+#include <fstream>
+#include <string>
+#include <map>
+#include <algorithm>
+#include <vector>
+using namespace std;
+
+int main()
+{
+    multimap<string, string> mmap;
+    string abbrev;
+    string college;
+    ifstream file("colleges.txt");
+    /*str2 = "PA Moravian College";
+    abbrev = str2.substr(0, 2);
+    cout << abbrev << ' ';
+    college = str2.substr(3);
+    cout << college << endl;*/
+    string str;
+    int x = 1;
+    while(getline(file, str))
+    {
+        abbrev = str.substr(0, 2);
+        college = str.substr(3);
+        mmap.insert(pair <string, string>(college, abbrev));
+    }
+    for (auto i = mmap.begin(); i != mmap.end(); ++i)
+    {
+        if (i->second == "AK")
+        {
+            for (static bool j = true; j; j = false)//only occurs once
+            {
+                if (i->second == "AK")
+                {
+                    cout << "Alaska" << endl;
+                }
+                j = false;
+            }
+            cout << "\t" << i->first << '\n';
+        }
+    }
+    for (auto i = mmap.begin(); i != mmap.end(); ++i)
+    {
+        if (i->second == "AL")
+        {
+            for (static bool j = true; j; j = false)
+            {
+                if (i->second == "AL")
+                {
+                    cout << "Alabama" << endl;
+                }
+                j = false;
+            }
+            cout << "\t" << i->first << '\n';
+        }
+    }
+    for (auto i = mmap.begin(); i != mmap.end(); ++i)
+    {
+        if (i->second == "AZ")
+        {
+            for (static bool j = true; j; j = false)
+            {
+                if (i->second == "AZ")
+                {
+                    cout << "Arizona" << endl;
+                }
+                j = false;
+            }
+            cout << "\t" << i->first << '\n';
+        }
+    }
+    for (auto i = mmap.begin(); i != mmap.end(); ++i)
+    {
+        if (i->second == "AR")
+        {
+            for (static bool j = true; j; j = false)
+            {
+                if (i->second == "AR")
+                {
+                    cout << "Arkansas" << endl;
+                }
+                j = false;
+            }
+            cout << "\t" << i->first << '\n';
+        }
+    }
+    for (auto i = mmap.begin(); i != mmap.end(); ++i)
+    {
+        if (i->second == "CA")
+        {
+            for (static bool j = true; j; j = false)
+            {
+                if (i->second == "CA")
+                {
+                    cout << "California" << endl;
+                }
+                j = false;
+            }
+            cout << "\t" << i->first << '\n';
+        }
+    }
+    for (auto i = mmap.begin(); i != mmap.end(); ++i)
+    {
+        if (i->second == "CO")
+        {
+            for (static bool j = true; j; j = false)
+            {
+                if (i->second == "CO")
+                {
+                    cout << "Colorado" << endl;
+                }
+                j = false;
+            }
+            cout << "\t" << i->first << '\n';
+        }
+    }
+    for (auto i = mmap.begin(); i != mmap.end(); ++i)
+    {
+        if (i->second == "CT")
+        {
+            for (static bool j = true; j; j = false)
+            {
+                if (i->second == "CT")
+                {
+                    cout << "Connecticut" << endl;
+                }
+                j = false;
+            }
+            cout << "\t" << i->first << '\n';
+        }
+    }
+    for (auto i = mmap.begin(); i != mmap.end(); ++i)
+    {
+        if (i->second == "DE")
+        {
+            for (static bool j = true; j; j = false)
+            {
+                if (i->second == "DE")
+                {
+                    cout << "Delaware" << endl;
+                }
+                j = false;
+            }
+            cout << "\t" << i->first << '\n';
+        }
+    }
+    for (auto i = mmap.begin(); i != mmap.end(); ++i)
+    {
+        if (i->second == "FL")
+        {
+            for (static bool j = true; j; j = false)
+            {
+                if (i->second == "FL")
+                {
+                    cout << "Florida" << endl;
+                }
+                j = false;
+            }
+            cout << "\t" << i->first << '\n';
+        }
+    }
+    for (auto i = mmap.begin(); i != mmap.end(); ++i)
+    {
+        if (i->second == "GA")
+        {
+            for (static bool j = true; j; j = false)
+            {
+                if (i->second == "GA")
+                {
+                    cout << "Georgia" << endl;
+                }
+                j = false;
+            }
+            cout << "\t" << i->first << '\n';
+        }
+    }
+    for (auto i = mmap.begin(); i != mmap.end(); ++i)
+    {
+        if (i->second == "HI")
+        {
+            for (static bool j = true; j; j = false)
+            {
+                if (i->second == "HI")
+                {
+                    cout << "Hawaii" << endl;
+                }
+                j = false;
+            }
+            cout << "\t" << i->first << '\n';
+        }
+    }
+    for (auto i = mmap.begin(); i != mmap.end(); ++i)
+    {
+        if (i->second == "ID")
+        {
+            for (static bool j = true; j; j = false)
+            {
+                if (i->second == "ID")
+                {
+                    cout << "Idaho" << endl;
+                }
+                j = false;
+            }
+            cout << "\t" << i->first << '\n';
+        }
+    }
+    for (auto i = mmap.begin(); i != mmap.end(); ++i)
+    {
+        if (i->second == "IL")
+        {
+            for (static bool j = true; j; j = false)
+            {
+                if (i->second == "IL")
+                {
+                    cout << "Illinois" << endl;
+                }
+                j = false;
+            }
+            cout << "\t" << i->first << '\n';
+        }
+    }
+    for (auto i = mmap.begin(); i != mmap.end(); ++i)
+    {
+        if (i->second == "IN")
+        {
+            for (static bool j = true; j; j = false)
+            {
+                if (i->second == "IN")
+                {
+                    cout << "Indiana" << endl;
+                }
+                j = false;
+            }
+            cout << "\t" << i->first << '\n';
+        }
+    }
+    for (auto i = mmap.begin(); i != mmap.end(); ++i)
+    {
+        if (i->second == "IA")
+        {
+            for (static bool j = true; j; j = false)
+            {
+                if (i->second == "IA")
+                {
+                    cout << "Iowa" << endl;
+                }
+                j = false;
+            }
+            cout << "\t" << i->first << '\n';
+        }
+    }
+    for (auto i = mmap.begin(); i != mmap.end(); ++i)
+    {
+        if (i->second == "KS")
+        {
+            for (static bool j = true; j; j = false)
+            {
+                if (i->second == "KS")
+                {
+                    cout << "Kentucky" << endl;
+                }
+                j = false;
+            }
+            cout << "\t" << i->first << '\n';
+        }
+    }
+    for (auto i = mmap.begin(); i != mmap.end(); ++i)
+    {
+        if (i->second == "LA")
+        {
+            for (static bool j = true; j; j = false)
+            {
+                if (i->second == "LA")
+                {
+                    cout << "Louisiana" << endl;
+                }
+                j = false;
+            }
+            cout << "\t" << i->first << '\n';
+        }
+    }
+    for (auto i = mmap.begin(); i != mmap.end(); ++i)
+    {
+        if (i->second == "ME")
+        {
+            for (static bool j = true; j; j = false)
+            {
+                if (i->second == "ME")
+                {
+                    cout << "Maine" << endl;
+                }
+                j = false;
+            }
+            cout << "\t" << i->first << '\n';
+        }
+    }
+    for (auto i = mmap.begin(); i != mmap.end(); ++i)
+    {
+        if (i->second == "MD")
+        {
+            for (static bool j = true; j; j = false)
+            {
+                if (i->second == "MD")
+                {
+                    cout << "Maryland" << endl;
+                }
+                j = false;
+            }
+            cout << "\t" << i->first << '\n';
+        }
+    }
+    for (auto i = mmap.begin(); i != mmap.end(); ++i)
+    {
+        if (i->second == "MA")
+        {
+            for (static bool j = true; j; j = false)
+            {
+                if (i->second == "MA")
+                {
+                    cout << "Massachusetts" << endl;
+                }
+                j = false;
+            }
+            cout << "\t" << i->first << '\n';
+        }
+    }
+    for (auto i = mmap.begin(); i != mmap.end(); ++i)
+    {
+        if (i->second == "MI")
+        {
+            for (static bool j = true; j; j = false)
+            {
+                if (i->second == "MI")
+                {
+                    cout << "Michigan" << endl;
+                }
+                j = false;
+            }
+            cout << "\t" << i->first << '\n';
+        }
+    }
+    for (auto i = mmap.begin(); i != mmap.end(); ++i)
+    {
+        if (i->second == "MS")
+        {
+            for (static bool j = true; j; j = false)
+            {
+                if (i->second == "MS")
+                {
+                    cout << "Minnesota" << endl;
+                }
+                j = false;
+            }
+            cout << "\t" << i->first << '\n';
+        }
+    }
+    for (auto i = mmap.begin(); i != mmap.end(); ++i)
+    {
+        if (i->second == "MS")
+        {
+            for (static bool j = true; j; j = false)
+            {
+                if (i->second == "MS")
+                {
+                    cout << "Missouri" << endl;
+                }
+                j = false;
+            }
+            cout << "\t" << i->first << '\n';
+        }
+    }
+    for (auto i = mmap.begin(); i != mmap.end(); ++i)
+    {
+        if (i->second == "MT")
+        {
+            for (static bool j = true; j; j = false)
+            {
+                if (i->second == "MT")
+                {
+                    cout << "Montana" << endl;
+                }
+                j = false;
+            }
+            cout << "\t" << i->first << '\n';
+        }
+    }
+    for (auto i = mmap.begin(); i != mmap.end(); ++i)
+    {
+        if (i->second == "NE")
+        {
+            for (static bool j = true; j; j = false)
+            {
+                if (i->second == "NE")
+                {
+                    cout << "Nebraska" << endl;
+                }
+                j = false;
+            }
+            cout << "\t" << i->first << '\n';
+        }
+    }
+    for (auto i = mmap.begin(); i != mmap.end(); ++i)
+    {
+        if (i->second == "NV")
+        {
+            for (static bool j = true; j; j = false)
+            {
+                if (i->second == "NV")
+                {
+                    cout << "Nevada" << endl;
+                }
+                j = false;
+            }
+            cout << "\t" << i->first << '\n';
+        }
+    }
+    for (auto i = mmap.begin(); i != mmap.end(); ++i)
+    {
+        if (i->second == "NH")
+        {
+            for (static bool j = true; j; j = false)
+            {
+                if (i->second == "NH")
+                {
+                    cout << "New Hampshire" << endl;
+                }
+                j = false;
+            }
+            cout << "\t" << i->first << '\n';
+        }
+    }
+    for (auto i = mmap.begin(); i != mmap.end(); ++i)
+    {
+        if (i->second == "NJ")
+        {
+            for (static bool j = true; j; j = false)
+            {
+                if (i->second == "NJ")
+                {
+                    cout << "New Jersey" << endl;
+                }
+                j = false;
+            }
+            cout << "\t" << i->first << '\n';
+        }
+    }
+    for (auto i = mmap.begin(); i != mmap.end(); ++i)
+    {
+        if (i->second == "NM")
+        {
+            for (static bool j = true; j; j = false)
+            {
+                if (i->second == "NM")
+                {
+                    cout << "New Mexico" << endl;
+                }
+                j = false;
+            }
+            cout << "\t" << i->first << '\n';
+        }
+    }
+    for (auto i = mmap.begin(); i != mmap.end(); ++i)
+    {
+        if (i->second == "NY")
+        {
+            for (static bool j = true; j; j = false)
+            {
+                if (i->second == "NY")
+                {
+                    cout << "New York" << endl;
+                }
+                j = false;
+            }
+            cout << "\t" << i->first << '\n';
+        }
+    }
+    for (auto i = mmap.begin(); i != mmap.end(); ++i)
+    {
+        if (i->second == "NC")
+        {
+            for (static bool j = true; j; j = false)
+            {
+                if (i->second == "NC")
+                {
+                    cout << "North Carolina" << endl;
+                }
+                j = false;
+            }
+            cout << "\t" << i->first << '\n';
+        }
+    }
+    for (auto i = mmap.begin(); i != mmap.end(); ++i)
+    {
+        if (i->second == "ND")
+        {
+            for (static bool j = true; j; j = false)
+            {
+                if (i->second == "ND")
+                {
+                    cout << "North Dakota" << endl;
+                }
+                j = false;
+            }
+            cout << "\t" << i->first << '\n';
+        }
+    }
+    for (auto i = mmap.begin(); i != mmap.end(); ++i)
+    {
+        if (i->second == "OH")
+        {
+            for (static bool j = true; j; j = false)
+            {
+                if (i->second == "OH")
+                {
+                    cout << "Ohio" << endl;
+                }
+                j = false;
+            }
+            cout << "\t" << i->first << '\n';
+        }
+    }
+    for (auto i = mmap.begin(); i != mmap.end(); ++i)
+    {
+        if (i->second == "OK")
+        {
+            for (static bool j = true; j; j = false)
+            {
+                if (i->second == "OK")
+                {
+                    cout << "Oklahoma" << endl;
+                }
+                j = false;
+            }
+            cout << "\t" << i->first << '\n';
+        }
+    }
+    for (auto i = mmap.begin(); i != mmap.end(); ++i)
+    {
+        if (i->second == "OR")
+        {
+            for (static bool j = true; j; j = false)
+            {
+                if (i->second == "OR")
+                {
+                    cout << "Oregon" << endl;
+                }
+                j = false;
+            }
+            cout << "\t" << i->first << '\n';
+        }
+    }
+    for (auto i = mmap.begin(); i != mmap.end(); ++i)
+    {
+        if (i->second == "PA")
+        {
+            for (static bool j = true; j; j = false)
+            {
+                if (i->second == "PA")
+                {
+                    cout << "Pennsylvania" << endl;
+                }
+                j = false;
+            }
+            cout << "\t" << i->first << '\n';
+        }
+    }
+    for (auto i = mmap.begin(); i != mmap.end(); ++i)
+    {
+        if (i->second == "RI")
+        {
+            for (static bool j = true; j; j = false)
+            {
+                if (i->second == "RI")
+                {
+                    cout << "Rhode Island" << endl;
+                }
+                j = false;
+            }
+            cout << "\t" << i->first << '\n';
+        }
+    }
+    for (auto i = mmap.begin(); i != mmap.end(); ++i)
+    {
+        if (i->second == "SC")
+        {
+            for (static bool j = true; j; j = false)
+            {
+                if (i->second == "SC")
+                {
+                    cout << "South Carolina" << endl;
+                }
+                j = false;
+            }
+            cout << "\t" << i->first << '\n';
+        }
+    }
+    for (auto i = mmap.begin(); i != mmap.end(); ++i)
+    {
+        if (i->second == "SD")
+        {
+            for (static bool j = true; j; j = false)
+            {
+                if (i->second == "SD")
+                {
+                    cout << "South Dakota" << endl;
+                }
+                j = false;
+            }
+            cout << "\t" << i->first << '\n';
+        }
+    }
+    for (auto i = mmap.begin(); i != mmap.end(); ++i)
+    {
+        if (i->second == "TN")
+        {
+            for (static bool j = true; j; j = false)
+            {
+                if (i->second == "TN")
+                {
+                    cout << "Tennessee" << endl;
+                }
+                j = false;
+            }
+            cout << "\t" << i->first << '\n';
+        }
+    }
+    for (auto i = mmap.begin(); i != mmap.end(); ++i)
+    {
+        if (i->second == "TX")
+        {
+            for (static bool j = true; j; j = false)
+            {
+                if (i->second == "TX")
+                {
+                    cout << "Texas" << endl;
+                }
+                j = false;
+            }
+            cout << "\t" << i->first << '\n';
+        }
+    }
+    for (auto i = mmap.begin(); i != mmap.end(); ++i)
+    {
+        if (i->second == "UT")
+        {
+            for (static bool j = true; j; j = false)
+            {
+                if (i->second == "UT")
+                {
+                    cout << "Utah" << endl;
+                }
+                j = false;
+            }
+            cout << "\t" << i->first << '\n';
+        }
+    }
+    for (auto i = mmap.begin(); i != mmap.end(); ++i)
+    {
+        if (i->second == "VT")
+        {
+            for (static bool j = true; j; j = false)
+            {
+                if (i->second == "VT")
+                {
+                    cout << "Vermont" << endl;
+                }
+                j = false;
+            }
+            cout << "\t" << i->first << '\n';
+        }
+    }
+    for (auto i = mmap.begin(); i != mmap.end(); ++i)
+    {
+        if (i->second == "VA")
+        {
+            for (static bool j = true; j; j = false)
+            {
+                if (i->second == "VA")
+                {
+                    cout << "Virginia" << endl;
+                }
+                j = false;
+            }
+            cout << "\t" << i->first << '\n';
+        }
+    }
+    for (auto i = mmap.begin(); i != mmap.end(); ++i)
+    {
+        if (i->second == "WA")
+        {
+            for (static bool j = true; j; j = false)
+            {
+                if (i->second == "WA")
+                {
+                    cout << "Washington" << endl;
+                }
+                j = false;
+            }
+            cout << "\t" << i->first << '\n';
+        }
+    }
+    for (auto i = mmap.begin(); i != mmap.end(); ++i)
+    {
+        if (i->second == "WV")
+        {
+            for (static bool j = true; j; j = false)
+            {
+                if (i->second == "WV")
+                {
+                    cout << "West Virginia" << endl;
+                }
+                j = false;
+            }
+            cout << "\t" << i->first << '\n';
+        }
+    }
+    for (auto i = mmap.begin(); i != mmap.end(); ++i)
+    {
+        if (i->second == "WI")
+        {
+            for (static bool j = true; j; j = false)
+            {
+                if (i->second == "WI")
+                {
+                    cout << "Wisconsin" << endl;
+                }
+                j = false;
+            }
+            cout << "\t" << i->first << '\n';
+        }
+    }
+    for (auto i = mmap.begin(); i != mmap.end(); ++i)
+    {
+        if (i->second == "WY")
+        {
+            for (static bool j = true; j; j = false)
+            {
+                if (i->second == "WY")
+                {
+                    cout << "Wyoming" << endl;
+                }
+                j = false;
+            }
+            cout << "\t" << i->first << '\n';
+        }
+    }
+}
