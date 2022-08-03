@@ -1,0 +1,329 @@
+#include <iostream>
+#include <string>
+#include <stdio.h>
+using namespace std;
+class Person 
+{
+private:
+	int social;
+	string firstName;
+	string lastName;
+	int age;
+public: //A default constructor isn't really necessary here, but I prefer having one anyway
+	Person()
+	{
+		social = 000000000;
+		firstName = "ERROR";
+		lastName = "ERROR";
+		age = 0;
+	}
+	Person(string f, string l, int a) //not completely necessary but someone might not know their social by heart
+	{
+		firstName = f;
+		lastName = l;
+		age = a;
+	}
+	Person(int s, string f, string l, int a)
+	{
+		social = s;
+		firstName = f;
+		lastName = l;
+		age = a;
+	}
+	~Person() 
+	{
+		//cout << "Person successfully deleted" << endl;
+	}
+	//getters
+	int socialS() const { return social; }
+	string first() const { return firstName; }
+	string last() const { return lastName; }
+	int age1() const { return age; }
+};
+ostream& operator<<(ostream& os, const Person& p)
+{
+	return os << p.last() << ", " << p.first() << ", Age: " << p.age1() << ", Social: " << p.socialS();
+}
+istream& operator>>(istream& is, Person& p)
+{
+	bool x = 0;
+	string f, l;
+	int a, s;
+	cout << "Enter first name: ";
+	is >> f;
+	cout << "Enter last name: ";
+	is >> l;
+	do
+	{
+		cout << "Enter social: ";
+		cin >> s;
+		if (s > 999999999 || s < 100000000)
+		{
+			cout << "ERROR: SSN NOT POSSIBLE" << endl;
+		}
+		else
+		{
+			x = 1;
+		}
+	} while (x == 0);
+	cout << "Enter age: ";
+	is >> a;
+	p = Person(s, f, l, a);
+	return is;
+}
+//Last name, first name, then ssn
+Person& operator<(const Person& p1, const Person& p2)
+{
+	Person p = p1;
+	string one, two;
+	int intOne, intTwo;
+	one = p1.last();
+	two = p2.last();
+	for (int i = 0; i < one.length(); i++)
+	{
+		if (one.at(i) < two.at(i))
+		{
+			cout << p1 << " < " << p2 << endl;
+			return p;
+		}
+		else if (one.at(i) > two.at(i))
+		{
+			cout << p1 << " > " << p2 << endl;
+			return p;
+		}
+	}
+	one = p1.first();
+	two = p2.first();
+	for (int i = 0; i < one.length(); i++)
+	{
+		if (one.at(i) < two.at(i))
+		{
+			cout << p1 << " < " << p2 << endl;
+			return p;
+		}
+		else if (one.at(i) > two.at(i))
+		{
+			cout << p1 << " > " << p2 << endl;
+			return p;
+		}
+	}
+	intOne = p1.socialS();
+	intTwo = p1.socialS();
+	if (intOne < intTwo)
+	{
+		cout << p1 << " < " << p2 << endl;
+		return p;
+	}
+	else if (intOne > intTwo)
+	{
+		cout << p1 << " > " << p2 << endl;
+		return p;
+	}
+	else
+	{
+		cout << p1 << " == " << p2 << endl;
+		return p;
+	}
+}
+Person& operator>(const Person& p1, const Person& p2)
+{
+	Person p = p1;
+	string one, two;
+	int intOne, intTwo;
+	one = p1.last();
+	two = p2.last();
+	for (int i = 0; i < one.length(); i++)
+	{
+		if (one.at(i) < two.at(i))
+		{
+			cout << p1 << " < " << p2 << endl;
+			return p;
+		}
+		else if (one.at(i) > two.at(i))
+		{
+			cout << p1 << " > " << p2 << endl;
+			return p;
+		}
+	}
+	one = p1.first();
+	two = p2.first();
+	for (int i = 0; i < one.length(); i++)
+	{
+		if (one.at(i) < two.at(i))
+		{
+			cout << p1 << " < " << p2 << endl;
+			return p;
+		}
+		else if (one.at(i) > two.at(i))
+		{
+			cout << p1 << " > " << p2 << endl;
+			return p;
+		}
+	}
+	intOne = p1.socialS();
+	intTwo = p1.socialS();
+	if (intOne < intTwo)
+	{
+		cout << p1 << " < " << p2 << endl;
+		return p;
+	}
+	else if (intOne > intTwo)
+	{
+		cout << p1 << " > " << p2 << endl;
+		return p;
+	}
+	else
+	{
+		cout << p1 << " == " << p2 << endl;
+		return p;
+	}
+}
+Person& operator==(const Person& p1, const Person& p2)
+{
+	Person p = p1;
+	if (p1.last() == p2.last() && p1.first() == p2.first() && p1.socialS() == p2.socialS() && p1.age1() == p1.age1())
+	{
+		cout << p1 << " == " << p2 << endl;
+		return p;
+	}
+	else
+	{
+		cout << p1 << " != " << p2 << endl;
+	}
+}
+Person& operator!=(const Person& p1, const Person& p2)
+{
+	Person p = p1;
+	if (p1.last() == p2.last() && p1.first() == p2.first() && p1.socialS() == p2.socialS() && p1.age1() == p1.age1())
+	{
+		cout << p1 << " == " << p2 << endl;
+		return p;
+	}
+	else
+	{
+		cout << p1 << " != " << p2 << endl;
+	}
+}
+Person& operator<=(const Person& p1, const Person& p2)
+{
+	Person p = p1;
+	string one, two;
+	int intOne, intTwo;
+	one = p1.last();
+	two = p2.last();
+	for (int i = 0; i < one.length(); i++)
+	{
+		if (one.at(i) <= two.at(i))
+		{
+			cout << p1 << " <= " << p2 << endl;
+			return p;
+		}
+		else if (one.at(i) >= two.at(i))
+		{
+			cout << p1 << " >= " << p2 << endl;
+			return p;
+		}
+	}
+	one = p1.first();
+	two = p2.first();
+	for (int i = 0; i < one.length(); i++)
+	{
+		if (one.at(i) <= two.at(i))
+		{
+			cout << p1 << " <= " << p2 << endl;
+			return p;
+		}
+		else if (one.at(i) >= two.at(i))
+		{
+			cout << p1 << " >= " << p2 << endl;
+			return p;
+		}
+	}
+	intOne = p1.socialS();
+	intTwo = p1.socialS();
+	if (intOne <= intTwo)
+	{
+		cout << p1 << " <= " << p2 << endl;
+		return p;
+	}
+	else if (intOne >= intTwo)
+	{
+		cout << p1 << " >= " << p2 << endl;
+		return p;
+	}
+	else
+	{
+		cout << p1 << " == " << p2 << endl;
+		return p;
+	}
+}
+Person& operator>=(const Person& p1, const Person& p2)
+{
+	Person p = p1;
+	string one, two;
+	int intOne, intTwo;
+	one = p1.last();
+	two = p2.last();
+	for (int i = 0; i < one.length(); i++)
+	{
+		if (one.at(i) <= two.at(i))
+		{
+			cout << p1 << " <= " << p2 << endl;
+			return p;
+		}
+		else if (one.at(i) >= two.at(i))
+		{
+			cout << p1 << " >= " << p2 << endl;
+			return p;
+		}
+	}
+	one = p1.first();
+	two = p2.first();
+	for (int i = 0; i < one.length(); i++)
+	{
+		if (one.at(i) <= two.at(i))
+		{
+			cout << p1 << " <= " << p2 << endl;
+			return p;
+		}
+		else if (one.at(i) >= two.at(i))
+		{
+			cout << p1 << " >= " << p2 << endl;
+			return p;
+		}
+	}
+	intOne = p1.socialS();
+	intTwo = p1.socialS();
+	if (intOne <= intTwo)
+	{
+		cout << p1 << " <= " << p2 << endl;
+		return p;
+	}
+	else if (intOne >= intTwo)
+	{
+		cout << p1 << " >= " << p2 << endl;
+		return p;
+	}
+	else
+	{
+		cout << p1 << " == " << p2 << endl;
+		return p;
+	}
+}
+int main() 
+{
+	int x = 0;
+	Person p1(123456789, "Frank", "Stallone", 42);
+	Person p2;
+	Person p3(999999999, "John", "Stallone", 22);
+	p1 < p3;
+	p1 > p3;
+	p1 <= p3;
+	p1 >= p3;
+	p3 >= p1;
+	cout << endl << p1 << endl << p2 << endl;
+	cin >> p2;
+	cout << p2 << endl;
+	cout << p1 << endl;
+	return 0;
+}
