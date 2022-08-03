@@ -1,0 +1,34 @@
+#include <iostream>
+#include <string>
+#include <vector>
+#include <list>
+
+using namespace std;
+
+bool remover(const int& value) { return (value > 8); }
+
+int main() 
+{
+	vector <int> v{ 5, 2, 14, 11, 10, 16, 7, 2, 20, 2, 9, 8, 11 }; //a
+
+	list<int> l(v.begin(), v.end());
+	list<int>::iterator itr = l.begin();
+	l.remove_if(remover);
+
+	for (int i : l) 
+	{
+		cout << i << " ";
+	} //b
+
+	itr = find(l.begin(), l.end(), 2);
+	cout << endl <<  *itr << " " << &itr << endl; //c
+
+	l.insert(itr, 8);
+	l.insert(itr, 8);
+	l.insert(itr, 8);
+
+	for (int i : l)
+	{
+		cout << i << " ";
+	} //d
+}
